@@ -16,6 +16,13 @@
 		3C286B401E3157AD002195E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C286B3E1E3157AD002195E8 /* LaunchScreen.storyboard */; };
 		3C286B4B1E3157AD002195E8 /* explorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B4A1E3157AD002195E8 /* explorerTests.swift */; };
 		3C286B561E3157AD002195E8 /* explorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B551E3157AD002195E8 /* explorerUITests.swift */; };
+		4E9006CE1E318236008202F1 /* MyBadgesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006CD1E318236008202F1 /* MyBadgesTableViewController.swift */; };
+		4E9006D01E31825B008202F1 /* NewChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006CF1E31825B008202F1 /* NewChallengeViewController.swift */; };
+		4E9006D21E31828A008202F1 /* MyChallengeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006D11E31828A008202F1 /* MyChallengeTableViewController.swift */; };
+		4E9006D41E318432008202F1 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006D31E318432008202F1 /* CustomCells.swift */; };
+		4E9006D61E3185B6008202F1 /* NewChallengeDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006D51E3185B6008202F1 /* NewChallengeDelegateProtocol.swift */; };
+		4E9006D81E3185CE008202F1 /* MyChallengeDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006D71E3185CE008202F1 /* MyChallengeDelegateProtocol.swift */; };
+		4E9006DA1E3185DC008202F1 /* MyBadgesDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9006D91E3185DC008202F1 /* MyBadgesDelegateProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		3C286B511E3157AD002195E8 /* explorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = explorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C286B551E3157AD002195E8 /* explorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = explorerUITests.swift; sourceTree = "<group>"; };
 		3C286B571E3157AD002195E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E9006CD1E318236008202F1 /* MyBadgesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBadgesTableViewController.swift; sourceTree = "<group>"; };
+		4E9006CF1E31825B008202F1 /* NewChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
+		4E9006D11E31828A008202F1 /* MyChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChallengeTableViewController.swift; sourceTree = "<group>"; };
+		4E9006D31E318432008202F1 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
+		4E9006D51E3185B6008202F1 /* NewChallengeDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChallengeDelegateProtocol.swift; sourceTree = "<group>"; };
+		4E9006D71E3185CE008202F1 /* MyChallengeDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChallengeDelegateProtocol.swift; sourceTree = "<group>"; };
+		4E9006D91E3185DC008202F1 /* MyBadgesDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBadgesDelegateProtocol.swift; sourceTree = "<group>"; };
 		4E97714EDFE1C9EB3FBF39CD /* Pods-explorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-explorer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-explorer/Pods-explorer.debug.xcconfig"; sourceTree = "<group>"; };
 		F2446D95063CA3583179E63F /* libPods-explorer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-explorer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,7 +121,14 @@
 			isa = PBXGroup;
 			children = (
 				3C286B321E3157AC002195E8 /* AppDelegate.swift */,
+				4E9006D31E318432008202F1 /* CustomCells.swift */,
 				3C286B341E3157AC002195E8 /* HomeViewController.swift */,
+				4E9006CF1E31825B008202F1 /* NewChallengeViewController.swift */,
+				4E9006D51E3185B6008202F1 /* NewChallengeDelegateProtocol.swift */,
+				4E9006CD1E318236008202F1 /* MyBadgesTableViewController.swift */,
+				4E9006D91E3185DC008202F1 /* MyBadgesDelegateProtocol.swift */,
+				4E9006D11E31828A008202F1 /* MyChallengeTableViewController.swift */,
+				4E9006D71E3185CE008202F1 /* MyChallengeDelegateProtocol.swift */,
 				3C286B361E3157AC002195E8 /* Main.storyboard */,
 				3C286B3C1E3157AD002195E8 /* Assets.xcassets */,
 				3C286B3E1E3157AD002195E8 /* LaunchScreen.storyboard */,
@@ -338,8 +359,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C286B351E3157AC002195E8 /* HomeViewController.swift in Sources */,
+				4E9006CE1E318236008202F1 /* MyBadgesTableViewController.swift in Sources */,
+				4E9006D81E3185CE008202F1 /* MyChallengeDelegateProtocol.swift in Sources */,
 				3C286B331E3157AC002195E8 /* AppDelegate.swift in Sources */,
+				4E9006D61E3185B6008202F1 /* NewChallengeDelegateProtocol.swift in Sources */,
+				4E9006D41E318432008202F1 /* CustomCells.swift in Sources */,
 				3C286B3B1E3157AD002195E8 /* explorer.xcdatamodeld in Sources */,
+				4E9006D01E31825B008202F1 /* NewChallengeViewController.swift in Sources */,
+				4E9006DA1E3185DC008202F1 /* MyBadgesDelegateProtocol.swift in Sources */,
+				4E9006D21E31828A008202F1 /* MyChallengeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +614,7 @@
 				3C286B5C1E3157AD002195E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C286B5D1E3157AD002195E8 /* Build configuration list for PBXNativeTarget "explorerTests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +623,7 @@
 				3C286B5F1E3157AD002195E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C286B601E3157AD002195E8 /* Build configuration list for PBXNativeTarget "explorerUITests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +632,7 @@
 				3C286B621E3157AD002195E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
