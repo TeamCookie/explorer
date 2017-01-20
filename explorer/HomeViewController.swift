@@ -14,6 +14,11 @@ import GooglePlaces
 class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChallengeDelegateProtocol, MyBadgesDelegateProtocol {
     // REMEMBER TO ADD OTHER DELEGATE PROTCOLS
     
+    @IBOutlet weak var badgesButton: UIButton!
+    @IBOutlet weak var stateButton: UIButton!
+    @IBOutlet weak var challengeButton: UIButton!
+    @IBOutlet weak var countryButton: UIButton!
+    
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     // var personLocation: String?
     var placesClient: GMSPlacesClient!
@@ -21,8 +26,13 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        placesClient = GMSPlacesClient.shared()
-        createPlaces()
+//        placesClient = GMSPlacesClient.shared()
+//        createPlaces()
+        badgesButton.setImage(UIImage(named: "mybadges.png"), for: .normal)
+        stateButton.setImage(UIImage(named: "states.png"), for: .normal)
+        countryButton.setImage(UIImage(named: "countries.png"), for: .normal)
+        challengeButton.setImage(UIImage(named: "mychallenge.png"), for: .normal)
+
     }
     
     func challengeSaved(by controller: NewChallengeViewController, challengeType: String, coordinate: CLLocationCoordinate2D) {
@@ -45,25 +55,25 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
             }
         }
     }
-    
-    func createPlaces() {
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription) \(error)")
-                return
-            }
-            
-            if let placeLikelihoodList = placeLikelihoodList {
-                for likelihood in placeLikelihoodList.likelihoods {
-                    let place = likelihood.place
-                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
-                    print("Current Place address \(place.formattedAddress)")
-                    print("Current Place attributions \(place.attributions)")
-                    print("Current PlaceID \(place.placeID)")
-                }
-            }
-        })
-    }
+//    
+//    func createPlaces() {
+//        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+//            if let error = error {
+//                print("Pick Place error: \(error.localizedDescription) \(error)")
+//                return
+//            }
+//            
+//            if let placeLikelihoodList = placeLikelihoodList {
+//                for likelihood in placeLikelihoodList.likelihoods {
+//                    let place = likelihood.place
+//                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
+//                    print("Current Place address \(place.formattedAddress)")
+//                    print("Current Place attributions \(place.attributions)")
+//                    print("Current PlaceID \(place.placeID)")
+//                }
+//            }
+//        })
+//    }
     
     func newChallengeCancelButtonPressed(by controller: NewChallengeViewController){
         dismiss(animated: true, completion: nil)

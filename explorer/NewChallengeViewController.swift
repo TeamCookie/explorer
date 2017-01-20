@@ -18,8 +18,6 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     
     let locationManager = CLLocationManager()
     var currentCoordinate: CLLocationCoordinate2D!
-    var currentLongitude: Double!
-    var currentLatitude: Double!
     var location: CLLocation! //{
 //        didSet {
 //            currentCoordinate = location.coordinate
@@ -28,6 +26,7 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
 //        }
 //    }
     
+    @IBOutlet weak var currentLocationMap: GMSMapView!
     @IBOutlet weak var challengeTypeInput: UIPickerView!
     var randomChallengeLocationTypes = ["zoo", "park", "stadium", "natural_feature", "museum", "city_hall", "university", "aquarium", "amusement_park", "night_club", "restaurant"]
     var outdoorsChallengeLocationTypes = ["zoo", "park", "stadium", "natural_feature"]
@@ -35,16 +34,13 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     var funChallengeLocationTypes = ["aquarium", "amusement_park", "night_club", "restaurant"]
     var typeOfChallengeSelected = String()
     var typeOfChallengePickerOptions: [String] = [String]()
-
-    @IBOutlet weak var currentLocationMap: GMSMapView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.challengeTypeInput.delegate = self
         self.challengeTypeInput.dataSource = self
-        
+    
         typeOfChallengePickerOptions = ["Random", "Outdoors", "History", "Fun"]
 
         
@@ -55,22 +51,6 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
         self.locationManager.requestWhenInUseAuthorization()
         
         self.locationManager.startUpdatingLocation()
-        
-//        print("location: \(location), current coord: \(currentCoordinate), current longitude \(currentLongitude), current latitude \(currentLatitude)")
-
-        
-        //        checkCoreLocationPermissionsAndStartUpdate()    }
-        
-//        // Create a GMSCameraPosition that tells map to display coordinate
-//        let camera = GMSCameraPosition.camera(withLatitude: 10, longitude: -84, zoom: 5.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        mapView.isMyLocationEnabled = true
-//        currentLocationMap = mapView
-        
-        loadView()
-        
-//        print("******************* LAT FROM LOCATION VAR \(location.coordinate.latitude)")
-//
 
     
     }
@@ -107,30 +87,38 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     
     // LOCATION DELEGATE METHODS
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            location = locations.last
+            locationManager.stopUpdatingLocation()
+//            print("Location: \(location)")
         
-        location = locations.last
-        locationManager.stopUpdatingLocation()
-        print("Location: \(location)")
+        //        print("location: \(location), current coord: \(currentCoordinate), current longitude \(currentLongitude!), current latitude \(currentLatitude!)")
         
-//        print("location: \(location), current coord: \(currentCoordinate), current longitude \(currentLongitude!), current latitude \(currentLatitude!)")
-        
-//         Create a GMSCameraPosition that tells the map to display the
-//         coordinate -33.86,151.20 at zoom level 6.
+        //         Create a GMSCameraPosition that tells the map to display the
+        //         coordinate -33.86,151.20 at zoom level 6.
         print("my latitude \(location.coordinate.latitude)")
         print("my longitude \(location.coordinate.longitude)")
         
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 11.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        currentLocationMap.camera = camera
         
-        self.currentLocationMap = mapView
-
-
+        //        let mapView = GMSMapView.map(withFrame: CGRect(x: 100, y: 100, width: 300, height: 300), camera: camera)
+        //
+        //        self.view = mapView
+        currentLocationMap = mapView
+        currentLocationMap.isMyLocationEnabled = true
         
-//         Creates a marker in the center of the map.
+        //        currentLocationMap = mapView
+        //        mapView.center = self.view.center
+        //        self.view.addSubview(mapView)
+        
+        
+        
+        //         Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         marker.title = "Your Location"
-//        marker.snippet = location.description
+        //        marker.snippet = location.description
         marker.map = mapView
         
     }
@@ -138,7 +126,6 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("\(error)")
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -22,50 +22,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jT6-ey-9cK">
-                                <rect key="frame" x="16" y="64" width="288" height="504"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Epw-EV-mHc">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="252"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kah-fr-vgT">
-                                                <rect key="frame" x="0.0" y="0.0" width="144" height="252"/>
-                                                <state key="normal" title="Country"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UR-OY-cOx">
-                                                <rect key="frame" x="144" y="0.0" width="144" height="252"/>
-                                                <state key="normal" title="My Challenge"/>
-                                                <connections>
-                                                    <segue destination="jPA-Yn-enC" kind="presentation" identifier="myChallenge" id="4pT-7D-wsL"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xFH-Rf-7G5">
-                                        <rect key="frame" x="0.0" y="252" width="288" height="252"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-jr-skL">
-                                                <rect key="frame" x="0.0" y="0.0" width="144" height="252"/>
-                                                <state key="normal" title="State"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39g-Lv-YaA">
-                                                <rect key="frame" x="144" y="0.0" width="144" height="252"/>
-                                                <state key="normal" title="My Badges"/>
-                                                <connections>
-                                                    <segue destination="e9o-6n-YNB" kind="presentation" identifier="myBadges" id="vi4-2T-5kA"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kah-fr-vgT">
+                                <rect key="frame" x="24" y="140" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="5x9-PX-0M1"/>
+                                    <constraint firstAttribute="height" constant="100" id="xFb-9Z-Ecg"/>
+                                </constraints>
+                                <state key="normal" title="Country"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UR-OY-cOx">
+                                <rect key="frame" x="196" y="140" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Zde-NJ-PGa"/>
+                                    <constraint firstAttribute="width" constant="100" id="zU9-mQ-6nA"/>
+                                </constraints>
+                                <state key="normal" title="My Challenge"/>
+                                <connections>
+                                    <segue destination="jPA-Yn-enC" kind="presentation" identifier="myChallenge" id="4pT-7D-wsL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-jr-skL">
+                                <rect key="frame" x="24" y="288" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="4nk-MQ-WJj"/>
+                                    <constraint firstAttribute="width" constant="100" id="lWu-On-4ho"/>
+                                </constraints>
+                                <state key="normal" title="State"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39g-Lv-YaA">
+                                <rect key="frame" x="196" y="288" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4FJ-3R-OML"/>
+                                    <constraint firstAttribute="height" constant="100" id="azy-kN-UQJ"/>
+                                </constraints>
+                                <state key="normal" title="My Badges"/>
+                                <connections>
+                                    <segue destination="e9o-6n-YNB" kind="presentation" identifier="myBadges" id="vi4-2T-5kA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAr-uA-uze">
+                                <rect key="frame" x="43" y="248" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyBadges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-9g-j2W">
+                                <rect key="frame" x="206" y="396" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrI-Gk-d22">
+                                <rect key="frame" x="54" y="396" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyChallenge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqw-b3-SSh">
+                                <rect key="frame" x="196" y="248" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jT6-ey-9cK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="APo-QC-9hd"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jT6-ey-9cK" secondAttribute="bottom" id="Yp3-Qg-Abi"/>
-                            <constraint firstItem="jT6-ey-9cK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bhq-7X-Ia9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jT6-ey-9cK" secondAttribute="trailing" id="giH-qa-2Tc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3UR-OY-cOx" secondAttribute="trailing" constant="8" id="0Gp-zl-G9C"/>
+                            <constraint firstItem="EH9-9g-j2W" firstAttribute="top" secondItem="39g-Lv-YaA" secondAttribute="bottom" constant="8" id="0ty-tl-Ufy"/>
+                            <constraint firstItem="kah-fr-vgT" firstAttribute="centerY" secondItem="3UR-OY-cOx" secondAttribute="centerY" id="91T-10-YkK"/>
+                            <constraint firstItem="EH9-9g-j2W" firstAttribute="centerX" secondItem="39g-Lv-YaA" secondAttribute="centerX" id="9oT-cY-Xxv"/>
+                            <constraint firstItem="mAr-uA-uze" firstAttribute="centerX" secondItem="kah-fr-vgT" secondAttribute="centerX" id="P7P-25-cR4"/>
+                            <constraint firstItem="kah-fr-vgT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="QEj-sd-u2e"/>
+                            <constraint firstItem="39g-Lv-YaA" firstAttribute="top" secondItem="3UR-OY-cOx" secondAttribute="bottom" constant="48" id="Yh4-jF-z0w"/>
+                            <constraint firstItem="mAr-uA-uze" firstAttribute="top" secondItem="kah-fr-vgT" secondAttribute="bottom" constant="8" id="biR-eL-cmN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="39g-Lv-YaA" secondAttribute="bottom" constant="180" id="ciA-gm-khC"/>
+                            <constraint firstItem="JkH-jr-skL" firstAttribute="top" secondItem="kah-fr-vgT" secondAttribute="bottom" constant="48" id="enb-Jo-xVn"/>
+                            <constraint firstItem="JkH-jr-skL" firstAttribute="centerY" secondItem="39g-Lv-YaA" secondAttribute="centerY" id="gcf-C9-c9O"/>
+                            <constraint firstItem="xrI-Gk-d22" firstAttribute="centerX" secondItem="JkH-jr-skL" secondAttribute="centerX" id="hpN-sP-WRB"/>
+                            <constraint firstItem="Uqw-b3-SSh" firstAttribute="centerX" secondItem="3UR-OY-cOx" secondAttribute="centerX" id="kgX-kG-0hb"/>
+                            <constraint firstItem="xrI-Gk-d22" firstAttribute="top" secondItem="JkH-jr-skL" secondAttribute="bottom" constant="8" id="mAx-pU-OpN"/>
+                            <constraint firstItem="JkH-jr-skL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="ung-oH-061"/>
+                            <constraint firstItem="Uqw-b3-SSh" firstAttribute="top" secondItem="3UR-OY-cOx" secondAttribute="bottom" constant="8" id="y9x-fJ-DFI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="39g-Lv-YaA" secondAttribute="trailing" constant="8" id="ylc-a6-jii"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Explorer" id="9IT-8j-Dqp">
@@ -75,10 +113,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="badgesButton" destination="39g-Lv-YaA" id="ByQ-cw-5M2"/>
+                        <outlet property="challengeButton" destination="3UR-OY-cOx" id="V2a-zM-gSK"/>
+                        <outlet property="countryButton" destination="kah-fr-vgT" id="O9Y-AA-0fC"/>
+                        <outlet property="stateButton" destination="JkH-jr-skL" id="ccj-PH-VOk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1074.375" y="136.26760563380282"/>
         </scene>
         <!--My Badges-->
         <scene sceneID="AvJ-9u-9Mo">
@@ -156,14 +200,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="468-pG-agN">
-                                <rect key="frame" x="0.0" y="303" width="320" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="5OL-I6-usC" id="SXu-hO-J6A"/>
-                                    <outlet property="delegate" destination="5OL-I6-usC" id="5LU-8m-eq9"/>
-                                </connections>
-                            </pickerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zb-N0Y" customClass="GMSMapView">
+                                <rect key="frame" x="1" y="64" width="319" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Select Type of Challenge:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4du-Qh-icH">
+                                <rect key="frame" x="62" y="303" width="196" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-ew-e5j">
                                 <rect key="frame" x="78" y="484" width="164" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,20 +220,21 @@
                                     <segue destination="jPA-Yn-enC" kind="presentation" identifier="startChallenge" id="xzJ-0G-hej"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zb-N0Y" customClass="GMSMapView">
-                                <rect key="frame" x="1" y="64" width="319" height="223"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Type of Challenge:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4du-Qh-icH">
-                                <rect key="frame" x="62" y="303" width="196" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="468-pG-agN">
+                                <rect key="frame" x="0.0" y="303" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5OL-I6-usC" id="SXu-hO-J6A"/>
+                                    <outlet property="delegate" destination="5OL-I6-usC" id="5LU-8m-eq9"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4du-Qh-icH" firstAttribute="centerX" secondItem="1dS-f8-xLW" secondAttribute="centerX" id="8ol-HN-vIK"/>
+                            <constraint firstItem="468-pG-agN" firstAttribute="top" secondItem="4du-Qh-icH" secondAttribute="bottom" constant="-18" id="Ey5-HR-LWU"/>
+                            <constraint firstItem="468-pG-agN" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leadingMargin" id="WwL-pE-LNb"/>
+                            <constraint firstItem="4du-Qh-icH" firstAttribute="centerY" secondItem="468-pG-agN" secondAttribute="centerY" id="fwv-1T-xVD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Start a Challenge" id="dGl-S4-C1V">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lyc-iz-Fgo">
@@ -197,7 +245,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="challengeTypeInput" destination="468-pG-agN" id="Ze9-yg-mel"/>
-                        <outlet property="currentLocationMap" destination="1Sl-zb-N0Y" id="YLU-Ax-acI"/>
+                        <outlet property="currentLocationMap" destination="1Sl-zb-N0Y" id="i5o-4l-4ew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVU-En-qiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,7 +419,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vi4-2T-5kA"/>
-        <segue reference="4pT-7D-wsL"/>
-        <segue reference="Agw-Vu-uGV"/>
+        <segue reference="u3a-AQ-EvH"/>
+        <segue reference="xzJ-0G-hej"/>
     </inferredMetricsTieBreakers>
 </document>
