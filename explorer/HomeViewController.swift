@@ -13,12 +13,6 @@ import CoreData
 class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChallengeDelegateProtocol {
     // REMEMBER TO ADD OTHER DELEGATE PROTCOLS
     
-    let locationManager = CLLocationManager()
-    var currentCoordinate: CLLocationCoordinate2D!
-    var currentLongitude: Double!
-    var currentLatitude: Double!
-    var location: CLLocation!
-    
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     // var personLocation: String?
 
