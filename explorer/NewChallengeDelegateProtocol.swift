@@ -11,6 +11,6 @@ import CoreLocation
 import GoogleMaps
 
 protocol NewChallengeDelegateProtocol: class{
-    func challengeSaved(by controller: NewChallengeViewController, challengeType: String, coordinate: CLLocationCoordinate2D)
+    func challengeSaved(by controller: NewChallengeViewController, challengeType: String)
     func newChallengeCancelButtonPressed(by controller: NewChallengeViewController)
 }

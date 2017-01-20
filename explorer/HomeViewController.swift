@@ -32,10 +32,56 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
         stateButton.setImage(UIImage(named: "states.png"), for: .normal)
         countryButton.setImage(UIImage(named: "countries.png"), for: .normal)
         challengeButton.setImage(UIImage(named: "mychallenge.png"), for: .normal)
+        
+//        // CREATE CHALLENGE
+//        
+//        let newChallenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedObjectContext) as! Challenge
+//        newChallenge.name = ("San Jose Nightlife Challenge")
+//        newChallenge.completed = false
+//        newChallenge.challengeType = "Nightlife"
+//        if managedObjectContext.hasChanges {
+//            do {
+//                try managedObjectContext.save()
+//                print("Success")
+//            } catch {
+//                print("\(error)")
+//            }
+//        }
 
+
+        // CREATING NIGHTLIFE PLACES
+//        
+//        let bar1 = NSEntityDescription.insertNewObject(forEntityName: "Place", into: managedObjectContext) as! Place
+//        bar1.name = "7 Stars Bar & Grill"
+//        bar1.visited = false
+//        
+//        let bar2 = NSEntityDescription.insertNewObject(forEntityName: "Place", into: managedObjectContext) as! Place
+//        bar2.name = "Paper Plane"
+//        bar1.visited = false
+//    
+//        let bar3 = NSEntityDescription.insertNewObject(forEntityName: "Place", into: managedObjectContext) as! Place
+//        bar3.name = "Haberdasher"
+//        bar3.visited = false
+//        
+//        let bar4 = NSEntityDescription.insertNewObject(forEntityName: "Place", into: managedObjectContext) as! Place
+//        bar4.name = "The Escape"
+//        bar4.visited = false
+//    
+//        let bar5 = NSEntityDescription.insertNewObject(forEntityName: "Place", into: managedObjectContext) as! Place
+//        bar5.name = "7 Bamboo Lounge"
+//        bar5.visited = false
+        
+//        if managedObjectContext.hasChanges {
+//            do {
+//                try managedObjectContext.save()
+//            } catch {
+//                fatalError("Failure to save context: \(error)")
+//            }
+//        }
+//
     }
     
-    func challengeSaved(by controller: NewChallengeViewController, challengeType: String, coordinate: CLLocationCoordinate2D) {
+    func challengeSaved(by controller: NewChallengeViewController, challengeType: String) {
 //        createChallenge(challengeType: challengeType)
     }
     
@@ -84,7 +130,9 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
     }
     
     func homeFromMyChallengeButtonPressed(by controller: MyChallengeTableViewController){
+        print("coming to home controller to dismiss")
         dismiss(animated: true, completion: nil)
+        print("processed dismiss")
     }
     
     func giveUpButtonPressed(by controller: MyChallengeTableViewController, challenge: Challenge){
@@ -130,10 +178,10 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
             let navigationController = segue.destination as! UINavigationController
             let badgesHomeViewController = navigationController.topViewController as! MyBadgesTableViewController
             badgesHomeViewController.delegate = self
-//        } else if segue.identifier == "newChallengeFromBadge" {
-//            let navigationController = segue.destination as! UINavigationController
-//            let badgesNewChallengeViewController = navigationController.topViewController as! MyBadgesTableViewController
-//            badgesNewChallengeViewController.delegate = self
+        } else if segue.identifier == "myChallenge" {
+            let navigationController = segue.destination as! UINavigationController
+            let myChallengeViewController = navigationController.topViewController as! MyChallengeTableViewController
+            myChallengeViewController.delegate = self
         }
     }
 

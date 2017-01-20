@@ -146,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cUn-lX-wdf" id="JOJ-nd-fJA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRc-bV-E3C">
@@ -201,17 +201,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zb-N0Y" customClass="GMSMapView">
-                                <rect key="frame" x="1" y="64" width="319" height="223"/>
+                                <rect key="frame" x="16" y="64" width="288" height="223"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Type of Challenge:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4du-Qh-icH">
-                                <rect key="frame" x="62" y="303" width="196" height="21"/>
+                                <rect key="frame" x="54" y="303" width="196" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-ew-e5j">
-                                <rect key="frame" x="78" y="484" width="164" height="68"/>
+                                <rect key="frame" x="78" y="484" width="148" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="jtC-QS-rOR"/>
                                 </constraints>
@@ -222,7 +222,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="468-pG-agN">
-                                <rect key="frame" x="0.0" y="303" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="303" width="304" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5OL-I6-usC" id="Xa8-e7-OLA"/>
                                     <outlet property="delegate" destination="5OL-I6-usC" id="8P4-2y-aMy"/>
@@ -233,21 +233,27 @@
                         <constraints>
                             <constraint firstItem="1Sl-zb-N0Y" firstAttribute="trailing" secondItem="468-pG-agN" secondAttribute="trailing" id="0pG-Gl-Sir"/>
                             <constraint firstItem="468-pG-agN" firstAttribute="top" secondItem="4du-Qh-icH" secondAttribute="top" id="3Rz-Ad-OJW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Sl-zb-N0Y" secondAttribute="trailing" id="BZX-vF-YUj"/>
                             <constraint firstItem="4du-Qh-icH" firstAttribute="centerX" secondItem="468-pG-agN" secondAttribute="centerX" id="KHF-Sv-PAb"/>
                             <constraint firstItem="4du-Qh-icH" firstAttribute="top" secondItem="1Sl-zb-N0Y" secondAttribute="bottom" constant="16" id="Ras-s4-hDX"/>
                             <constraint firstItem="468-pG-agN" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leading" id="TN8-7g-sRp"/>
                             <constraint firstItem="GUd-ew-e5j" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leadingMargin" constant="62" id="cUV-wd-aaf"/>
                             <constraint firstItem="DHA-Cg-Ktp" firstAttribute="top" secondItem="GUd-ew-e5j" secondAttribute="bottom" constant="16" id="dSF-tr-mIb"/>
                             <constraint firstItem="1Sl-zb-N0Y" firstAttribute="top" secondItem="aO7-rI-vDS" secondAttribute="bottom" id="fSs-aR-sJe"/>
+                            <constraint firstItem="1Sl-zb-N0Y" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leadingMargin" id="hBi-je-zvT"/>
                             <constraint firstItem="468-pG-agN" firstAttribute="centerX" secondItem="GUd-ew-e5j" secondAttribute="centerX" id="lGV-bT-rZI"/>
                             <constraint firstItem="DHA-Cg-Ktp" firstAttribute="top" secondItem="468-pG-agN" secondAttribute="bottom" constant="49" id="tb3-vF-Sbd"/>
-                            <constraint firstItem="1Sl-zb-N0Y" firstAttribute="centerX" secondItem="4du-Qh-icH" secondAttribute="centerX" id="x80-yt-yJo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Start a Challenge" id="dGl-S4-C1V">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lyc-iz-Fgo">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="5OL-I6-usC" id="Nt0-Nk-ct1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="3su-lp-R0I">
+                            <connections>
+                                <segue destination="loc-Je-3hE" kind="show" id="CbH-65-ugI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -260,23 +266,58 @@
             </objects>
             <point key="canvasLocation" x="2686.875" y="136.26760563380282"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Bws-0G-qzW">
+            <objects>
+                <viewController id="loc-Je-3hE" customClass="MapViewController" customModule="explorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XJB-yd-krT"/>
+                        <viewControllerLayoutGuide type="bottom" id="cf6-f2-qBk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hH0-ql-041">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDU-1H-kg0" customClass="GMSMapView">
+                                <rect key="frame" x="16" y="64" width="288" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZDU-1H-kg0" firstAttribute="leading" secondItem="hH0-ql-041" secondAttribute="leadingMargin" id="1Lk-y9-GTx"/>
+                            <constraint firstItem="cf6-f2-qBk" firstAttribute="top" secondItem="ZDU-1H-kg0" secondAttribute="bottom" id="8Iz-pp-4fL"/>
+                            <constraint firstItem="ZDU-1H-kg0" firstAttribute="top" secondItem="XJB-yd-krT" secondAttribute="bottom" id="RE0-jU-hHe"/>
+                            <constraint firstItem="ZDU-1H-kg0" firstAttribute="centerX" secondItem="hH0-ql-041" secondAttribute="centerX" id="RiO-qK-Y0x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZDU-1H-kg0" secondAttribute="trailing" id="iFb-FR-X0f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3xV-Og-LID"/>
+                    <connections>
+                        <outlet property="mapBox" destination="ZDU-1H-kg0" id="17n-FR-XEH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VuS-cB-B3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3664" y="170"/>
+        </scene>
         <!--My Challenge Table View Controller-->
         <scene sceneID="071-uT-tFm">
             <objects>
                 <tableViewController id="y1q-P8-sow" customClass="MyChallengeTableViewController" customModule="explorer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="145" sectionHeaderHeight="28" sectionFooterHeight="28" id="UK8-tg-5mY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" id="UK8-tg-5mY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pni-Tx-nbd">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hw1-RO-d3Z">
-                            <rect key="frame" x="0.0" y="258" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="135" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Complete Challenge"/>
                             <connections>
@@ -285,32 +326,32 @@
                             </connections>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="challengeCell" rowHeight="145" id="cNo-YR-lJI" customClass="ChallengePlaceCustomCell" customModule="explorer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="113" width="320" height="145"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="challengeCell" rowHeight="64" id="cNo-YR-lJI" customClass="ChallengePlaceCustomCell" customModule="explorer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="71" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cNo-YR-lJI" id="ves-yT-ZYK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuL-Sl-hZE">
-                                            <rect key="frame" x="20" y="49" width="47" height="47"/>
+                                            <rect key="frame" x="20" y="8" width="47" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-vd-ULl">
+                                            <rect key="frame" x="252" y="17" width="60" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Check In"/>
+                                            <connections>
+                                                <action selector="checkInButtonPressed:" destination="y1q-P8-sow" eventType="touchUpInside" id="pmp-oF-m1R"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYM-Fu-IhT">
-                                            <rect key="frame" x="95" y="62" width="92" height="21"/>
+                                            <rect key="frame" x="75" y="21" width="149" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-vd-ULl">
-                                            <rect key="frame" x="237" y="57" width="60" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Check In"/>
-                                            <connections>
-                                                <action selector="checkInButtonPressed:" destination="y1q-P8-sow" eventType="touchUpInside" id="zme-Sz-dtX"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -326,14 +367,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="1Rj-p7-aTT">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="sZK-es-siQ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EDt-aM-NoT">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Home"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="iiI-cc-tkX">
                             <connections>
-                                <action selector="homeButtonPressed:" destination="y1q-P8-sow" id="1oz-sq-G6q"/>
+                                <action selector="homeButtonPressed:" destination="y1q-P8-sow" id="o5r-tr-IUR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="sTK-Sa-fNH">
@@ -347,6 +383,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="challengeNameLabel" destination="pni-Tx-nbd" id="3tf-O6-JHh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-1L-5MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -426,8 +465,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vi4-2T-5kA"/>
+        <segue reference="4pT-7D-wsL"/>
         <segue reference="u3a-AQ-EvH"/>
-        <segue reference="xzJ-0G-hej"/>
+        <segue reference="yQm-5m-SEq"/>
     </inferredMetricsTieBreakers>
 </document>
