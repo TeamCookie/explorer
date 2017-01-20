@@ -62,6 +62,7 @@
 		3C286B571E3157AD002195E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E3BE7CC1E3243990038ECC2 /* CustomMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
 		4E3BE7D01E328CBB0038ECC2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4E3BE7D21E32B9260038ECC2 /* CodingDojoLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CodingDojoLocation.gpx; sourceTree = "<group>"; };
 		4E9006CD1E318236008202F1 /* MyBadgesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBadgesTableViewController.swift; sourceTree = "<group>"; };
 		4E9006CF1E31825B008202F1 /* NewChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChallengeViewController.swift; sourceTree = "<group>"; };
 		4E9006D11E31828A008202F1 /* MyChallengeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChallengeTableViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		3C286B261E3157AC002195E8 = {
 			isa = PBXGroup;
 			children = (
+				4E3BE7D21E32B9260038ECC2 /* CodingDojoLocation.gpx */,
 				3C286B311E3157AC002195E8 /* explorer */,
 				3C286B491E3157AD002195E8 /* explorerTests */,
 				3C286B541E3157AD002195E8 /* explorerUITests */,

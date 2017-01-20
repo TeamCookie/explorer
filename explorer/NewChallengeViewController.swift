@@ -17,6 +17,7 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     var camera: GMSCameraPosition!
 
     @IBOutlet weak var currentLocationMap: GMSMapView!
+    @IBOutlet weak var startChallengeButton: UIButton!
     
     let locationManager = CLLocationManager()
     var currentCoordinate: CLLocationCoordinate2D!
@@ -47,6 +48,10 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+        
+        // STYLING
+        startChallengeButton.backgroundColor = UIColor(red: 0.6, green: 0.69, blue: 0.84, alpha: 1.0)
+        startChallengeButton.setTitleColor(UIColor.white, for: .normal)
     }
     
         // CANCEL TO GO BACK TO TOP VIEW
@@ -95,23 +100,54 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
         
         camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 11.0)
         
-        //         Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        marker.title = "Your Location"
-        //        marker.snippet = location.description
-        marker.map = currentLocationMap
+        let geocoder = GMSGeocoder()
         
+        geocoder.reverseGeocodeCoordinate(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+        { response , error in
+            if let address = response?.firstResult() {
+                let lines = address.lines! as [String]
+                
+                let currentAddress = lines.joined(separator: "\n")
+                //         Creates a marker in the center of the map.
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: self.location.coordinate.latitude, longitude: self.location.coordinate.longitude)
+                marker.title = "Your Location"
+                marker.snippet = currentAddress
+                marker.map = self.currentLocationMap
+                
+                
+                let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: self.camera)
+                
+                self.currentLocationMap.camera = self.camera
+                self.currentLocationMap = mapView
+                print(self.currentLocationMap)
+                
+                self.currentLocationMap.isMyLocationEnabled = true
+                
+                self.view.addSubview(self.currentLocationMap)
+                
+            }
+        }
         
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        
-        self.currentLocationMap.camera = camera
-        self.currentLocationMap = mapView
-        print(self.currentLocationMap)
-        
-        self.currentLocationMap.isMyLocationEnabled = true
-        
-        self.view.addSubview(self.currentLocationMap)
+//
+//
+//        //         Creates a marker in the center of the map.
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//        marker.title = "Your Location"
+//        //        marker.snippet = location.description
+//        marker.map = currentLocationMap
+//        
+//        
+//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+//        
+//        self.currentLocationMap.camera = camera
+//        self.currentLocationMap = mapView
+//        print(self.currentLocationMap)
+//        
+//        self.currentLocationMap.isMyLocationEnabled = true
+//        
+//        self.view.addSubview(self.currentLocationMap)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

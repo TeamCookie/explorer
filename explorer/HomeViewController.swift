@@ -36,9 +36,9 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
 //        // CREATE CHALLENGE
 //        
 //        let newChallenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedObjectContext) as! Challenge
-//        newChallenge.name = ("San Jose Nightlife Challenge")
-//        newChallenge.completed = false
-//        newChallenge.challengeType = "Nightlife"
+//        newChallenge.name = ("San Francisco Summer Challenge")
+//        newChallenge.completed = true
+//        newChallenge.image = "badgesun"
 //        if managedObjectContext.hasChanges {
 //            do {
 //                try managedObjectContext.save()
@@ -71,6 +71,8 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
 //        bar5.name = "7 Bamboo Lounge"
 //        bar5.visited = false
         
+//        
+//        
 //        if managedObjectContext.hasChanges {
 //            do {
 //                try managedObjectContext.save()
@@ -78,7 +80,7 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
 //                fatalError("Failure to save context: \(error)")
 //            }
 //        }
-//
+////
     }
     
     func challengeSaved(by controller: NewChallengeViewController, challengeType: String) {
@@ -87,9 +89,9 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
     
     // CREATES NEW CHALLENGE
     
-    func createChallenge(challengeType: String){
+//    func createChallenge(challengeType: String){
 //        let newChallenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedObjectContext) as! Challenge
-//        newChallenge.name = ("San Jose \(challengeType) Challenge")
+////        newChallenge.name = ("San Jose \(challengeType) Challenge")
 //        newChallenge.completed = false
 //        newChallenge.challengeType = challengeType
 //        if managedObjectContext.hasChanges {
@@ -119,7 +121,7 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
 //                }
 //            }
 //        })
-    }
+//    }
     
     func newChallengeCancelButtonPressed(by controller: NewChallengeViewController){
         dismiss(animated: true, completion: nil)
@@ -136,9 +138,9 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
     }
     
     func giveUpButtonPressed(by controller: MyChallengeTableViewController, challenge: Challenge){
-        let deletedChallenge = challenge
-        managedObjectContext.delete(deletedChallenge)
-        saveData()
+//        let deletedChallenge = challenge
+//        managedObjectContext.delete(deletedChallenge)
+//        saveData()
         dismiss(animated: true, completion: nil)
     }
 //    

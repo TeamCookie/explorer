@@ -25,15 +25,20 @@ class MyChallengeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchChallengePlaces()
+        for challenge in ChallengesButActuallyJustOne! {
+            print(challenge.name)
+        }
+//        print(ChallengesButActuallyJustOne)
         thisChallenge = ChallengesButActuallyJustOne?[0]
-        challengeNameLabel.text = thisChallenge!.name
+        challengeNameLabel.text = "San Jose Nightlife Challenge"
+//        challengeNameLabel.text = thisChallenge!.name
         
         // CHECKING THAT PLACES ARE TIED TO CHALLENGE
         
 //        print("\(thisChallenge?.name)")
 //        let someplacesjoe = thisChallenge?.places
-//        for place in someplacesjoe! {
-//            print((place as AnyObject).name!)
+//        for place in myPlaces {
+//            print(place.name)
 //        }
         
         // ADDING RELATIONSHIP FROM PLACES TO CHALLENGE
@@ -116,20 +121,19 @@ class MyChallengeTableViewController: UITableViewController {
     
     func fetchChallengePlaces()  {
         let thisChallengeRequests = NSFetchRequest<NSFetchRequestResult>(entityName: "Challenge")
-        thisChallengeRequests.predicate = NSPredicate(format: "completed == false")
+//        thisChallengeRequests.predicate = NSPredicate(format: "completed == false")
 
         do {
             let results = try managedObjectContext.fetch(thisChallengeRequests)
             ChallengesButActuallyJustOne = results as! [Challenge]
-//            let checkChallenge = ChallengesButActuallyJustOne?[0]
-//            print(checkChallenge!)
         } catch {
             print("\(error)")
         }
-        
-        // FETCHING PLACES OF CHALLENGE
+    
+    // FETCHING PLACES OF CHALLENGE
         
         let placesRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Place")
+//        placesRequest.predicate = NSPredicate(format: "ANY challenge.name in %&", thisChallenge!)
         do {
             let results2 = try managedObjectContext.fetch(placesRequest)
             myPlaces = results2 as! [Place]

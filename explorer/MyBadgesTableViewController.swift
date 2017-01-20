@@ -20,7 +20,7 @@ class MyBadgesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newChallengeButton.isHidden = true
-        fetchCompletedChallenges()
+//        fetchCompletedChallenges()
     }
     
     @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
@@ -32,12 +32,12 @@ class MyBadgesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myBadges.count
+        return 1 // myBadges.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "badgeCell", for: indexPath)
-        cell.textLabel?.text = myBadges[indexPath.row].name
+//        cell.textLabel?.text = myBadges[indexPath.row].name
         return cell
     }
     
