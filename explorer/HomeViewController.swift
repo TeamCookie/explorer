@@ -28,6 +28,18 @@ class HomeViewController: UIViewController {
         marker.snippet = "Australia"
         marker.map = mapView
     }
+    
+    func newChallengeCancelButtonPressed(by controller: NewChallengeDelegateProtocol){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func homeFromBadgeButtonPressed(by controller: MyBadgesDelegateProtocol){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func homeFromMyChallengeButtonPressed(by controller: MyBadgesDelegateProtocol){
+        dismiss(animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -92,6 +92,9 @@
                             <rect key="frame" x="0.0" y="188" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="New Challenge"/>
+                            <connections>
+                                <action selector="newChallengeButtonPressed:" destination="kWg-ul-4gQ" eventType="touchUpInside" id="0fd-vM-YlW"/>
+                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="badgeCell" rowHeight="160" id="cUn-lX-wdf" customClass="BadgeCustomCell" customModule="explorer" customModuleProvider="target">
@@ -126,7 +129,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Badges" id="7Hw-jc-tmu">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="agb-8W-Xdb"/>
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="agb-8W-Xdb">
+                            <connections>
+                                <action selector="homeButtonPressed:" destination="kWg-ul-4gQ" id="boq-qC-jBA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6l-xY-3dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,21 +173,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-ew-e5j">
-                                <rect key="frame" x="132" y="565" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start Challenge!"/>
-                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="468-pG-agN">
                                 <rect key="frame" x="1" y="260" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-ew-e5j">
+                                <rect key="frame" x="78" y="484" width="164" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Challenge!"/>
+                                <connections>
+                                    <action selector="startChallengeButtonPressed:" destination="5OL-I6-usC" eventType="touchUpInside" id="Nap-Ji-8W0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Start a Challenge" id="dGl-S4-C1V">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lyc-iz-Fgo"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lyc-iz-Fgo">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="5OL-I6-usC" id="Nt0-Nk-ct1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="challengeTypeInput" destination="468-pG-agN" id="Ze9-yg-mel"/>
+                        <outlet property="cityInput" destination="QfB-6F-rbK" id="oLc-hP-Hwf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVU-En-qiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,6 +224,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Complete Challenge"/>
                             <connections>
+                                <action selector="completeChallengeButtonPressed:" destination="y1q-P8-sow" eventType="touchUpInside" id="mem-B2-p8b"/>
                                 <segue destination="e9o-6n-YNB" kind="presentation" identifier="challengeCompleted" id="yQm-5m-SEq"/>
                             </connections>
                         </button>
@@ -232,6 +251,9 @@
                                             <rect key="frame" x="237" y="57" width="60" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Check In"/>
+                                            <connections>
+                                                <action selector="checkInButtonPressed:" destination="y1q-P8-sow" eventType="touchUpInside" id="zme-Sz-dtX"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -254,6 +276,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Home"/>
                             </button>
+                            <connections>
+                                <action selector="homeButtonPressed:" destination="y1q-P8-sow" id="1oz-sq-G6q"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="sTK-Sa-fNH">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q1C-W9-hXH">
@@ -261,6 +286,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Give Up"/>
                             </button>
+                            <connections>
+                                <action selector="giveUpButtonPressed:" destination="y1q-P8-sow" id="lsq-Nu-Y3s"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

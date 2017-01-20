@@ -9,4 +9,6 @@
 import UIKit
 
 protocol MyBadgesDelegateProtocol: class{
+    func newChallengeButtonPressed(by controller: MyBadgesTableViewController)
+    func homeButtonPressed(by controller: MyBadgesTableViewController)
 }
