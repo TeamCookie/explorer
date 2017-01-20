@@ -84,7 +84,9 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     // TO CREATE NEW CHALLENGE
     
     @IBAction func startChallengeButtonPressed(_ sender: UIButton) {
-        delegate?.challengeSaved(by: self)
+        let challengeType = typeOfChallengeSelected
+        let coordinate = currentCoordinate!
+        delegate?.challengeSaved(by: self, challengeType: challengeType, coordinate: coordinate)
     }
     
     // CHECKING USER PERSMISSIONS OF LOCATION MANAGER
@@ -153,8 +155,6 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int
         ) -> String? {
-        let unicorn = typeOfChallengePickerOptions[row]
-        print(unicorn)
         return typeOfChallengePickerOptions[row]
     }
     

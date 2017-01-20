@@ -15,9 +15,11 @@ class MyBadgesTableViewController: UITableViewController {
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     weak var delegate: MyBadgesDelegateProtocol?
     
+    @IBOutlet weak var newChallengeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newChallengeButton.isHidden = true
         fetchCompletedChallenges()
     }
     

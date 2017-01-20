@@ -94,6 +94,7 @@
                             <state key="normal" title="New Challenge"/>
                             <connections>
                                 <action selector="newChallengeButtonPressed:" destination="kWg-ul-4gQ" eventType="touchUpInside" id="0fd-vM-YlW"/>
+                                <segue destination="Chr-jv-dX3" kind="presentation" identifier="newChallengeFromBadge" id="Agw-Vu-uGV"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -135,6 +136,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newChallengeButton" destination="1u4-n3-MC1" id="bcK-wg-7AC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6l-xY-3dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,6 +170,7 @@
                                 <state key="normal" title="Start Challenge!"/>
                                 <connections>
                                     <action selector="startChallengeButtonPressed:" destination="5OL-I6-usC" eventType="touchUpInside" id="Nap-Ji-8W0"/>
+                                    <segue destination="jPA-Yn-enC" kind="presentation" identifier="startChallenge" id="xzJ-0G-hej"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zb-N0Y" customClass="GMSMapView">
@@ -366,5 +371,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vi4-2T-5kA"/>
+        <segue reference="4pT-7D-wsL"/>
+        <segue reference="Agw-Vu-uGV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,20 +9,60 @@
 import UIKit
 import GoogleMaps
 import CoreData
+import GooglePlaces
 
-class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChallengeDelegateProtocol {
+class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChallengeDelegateProtocol, MyBadgesDelegateProtocol {
     // REMEMBER TO ADD OTHER DELEGATE PROTCOLS
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     // var personLocation: String?
+    var placesClient: GMSPlacesClient!
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        placesClient = GMSPlacesClient.shared()
+        createPlaces()
     }
     
-    func challengeSaved(by controller: NewChallengeViewController) {
+    func challengeSaved(by controller: NewChallengeViewController, challengeType: String, coordinate: CLLocationCoordinate2D) {
+//        createChallenge(challengeType: challengeType)
+    }
+    
+    // CREATES NEW CHALLENGE
+    
+    func createChallenge(challengeType: String){
+        let newChallenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedObjectContext) as! Challenge
+        newChallenge.name = ("San Jose \(challengeType) Challenge")
+        newChallenge.completed = false
+        newChallenge.challengeType = challengeType
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+                print("Success")
+            } catch {
+                print("\(error)")
+            }
+        }
+    }
+    
+    func createPlaces() {
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription) \(error)")
+                return
+            }
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                for likelihood in placeLikelihoodList.likelihoods {
+                    let place = likelihood.place
+                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
+                    print("Current Place address \(place.formattedAddress)")
+                    print("Current Place attributions \(place.attributions)")
+                    print("Current PlaceID \(place.placeID)")
+                }
+            }
+        })
     }
     
     func newChallengeCancelButtonPressed(by controller: NewChallengeViewController){
@@ -43,8 +83,21 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
         saveData()
         dismiss(animated: true, completion: nil)
     }
+//    
+//    func deleteChallenge(){
+//        let deletedItem = 
+//        do {
+//            try managedObjectContext.delete(deletedItem)
+//            print("Success")
+//        } catch {
+//            print("\(error)")
+//        }
+//    }
     
     func completeChallengeButtonPressed(by controller: MyChallengeTableViewController) {
+    }
+    
+    func newChallengeButtonPressed(by controller: MyBadgesTableViewController) {
     }
     
     func saveData() {
@@ -63,6 +116,14 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
             let navigationController = segue.destination as! UINavigationController
             let cancelViewController = navigationController.topViewController as! NewChallengeViewController
             cancelViewController.delegate = self
+        } else if segue.identifier == "myBadges" {
+            let navigationController = segue.destination as! UINavigationController
+            let badgesHomeViewController = navigationController.topViewController as! MyBadgesTableViewController
+            badgesHomeViewController.delegate = self
+//        } else if segue.identifier == "newChallengeFromBadge" {
+//            let navigationController = segue.destination as! UINavigationController
+//            let badgesNewChallengeViewController = navigationController.topViewController as! MyBadgesTableViewController
+//            badgesNewChallengeViewController.delegate = self
         }
     }
 

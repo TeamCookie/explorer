@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
+import GoogleMaps
 
 protocol NewChallengeDelegateProtocol: class{
-    func challengeSaved(by controller: NewChallengeViewController)
+    func challengeSaved(by controller: NewChallengeViewController, challengeType: String, coordinate: CLLocationCoordinate2D)
     func newChallengeCancelButtonPressed(by controller: NewChallengeViewController)
 }
