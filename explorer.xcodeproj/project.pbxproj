@@ -244,6 +244,7 @@
 				TargetAttributes = {
 					3C286B2E1E3157AC002195E8 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 99TJNPY592;
 						ProvisioningStyle = Automatic;
 					};
 					3C286B451E3157AD002195E8 = {
@@ -520,6 +521,7 @@
 			baseConfigurationReference = 4E97714EDFE1C9EB3FBF39CD /* Pods-explorer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 99TJNPY592;
 				INFOPLIST_FILE = explorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.explorer;
@@ -533,6 +535,7 @@
 			baseConfigurationReference = 32653A8C1EC4C22F73E5D6D4 /* Pods-explorer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 99TJNPY592;
 				INFOPLIST_FILE = explorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.explorer;

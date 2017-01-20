@@ -20,13 +20,7 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate {
     var currentCoordinate: CLLocationCoordinate2D!
     var currentLongitude: Double!
     var currentLatitude: Double!
-    var location: CLLocation! //{
-//        didSet {
-//            currentCoordinate = location.coordinate
-//            currentLongitude = location.coordinate.longitude
-//            currentLatitude = location.coordinate.latitude
-//        }
-//    }
+    var location: CLLocation!
     
     @IBOutlet weak var challengeTypeInput: UIPickerView!
     
@@ -34,25 +28,10 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
 //        checkCoreLocationPermissionsAndStartUpdate()
-        
-        print("location: \(location), current coord: \(currentCoordinate), current longitude \(currentLongitude), current latitude \(currentLatitude)")
-
-    
-        // Create a GMSCameraPosition that tells map to display coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: 48, longitude: 2, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        currentLocationMap = mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 48, longitude: 2)
-        marker.title = "Your Location"
-        marker.snippet = "Australia"
-        marker.map = mapView
     }
     
     @IBOutlet weak var currentLocationMap: GMSMapView!
@@ -87,15 +66,33 @@ class NewChallengeViewController: UIViewController, CLLocationManagerDelegate {
     
     // LOCATION DELEGATE METHODS
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("I am in location Manager delegate")
         
         location = locations.last
-        print("Location: \(location)")
+//        print("Location: \(location)")
         locationManager.stopUpdatingLocation()
         
+//        if let thisCoordinate = location {
+//            currentCoordinate = location.coordiante
+//            
+//        }
         currentCoordinate = location.coordinate
-        currentLongitude = location.coordinate.longitude
-        currentLatitude = location.coordinate.latitude
+        currentLongitude = Double(location.coordinate.longitude)
+        currentLatitude = Double(location.coordinate.latitude)
+        
+        print("location: \(location), current coord: \(currentCoordinate), current longitude \(currentLongitude!), current latitude \(currentLatitude!)")
+
+        // Create a GMSCameraPosition that tells map to display coordinate
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        currentLocationMap = mapView
+        
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        marker.title = "Your Location"
+        marker.snippet = "Australia"
+        marker.map = mapView
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
