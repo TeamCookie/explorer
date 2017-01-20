@@ -42,20 +42,20 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
     // CREATES NEW CHALLENGE
     
     func createChallenge(challengeType: String){
-        let newChallenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedObjectContext) as! Challenge
-        newChallenge.name = ("San Jose \(challengeType) Challenge")
-        newChallenge.completed = false
-        newChallenge.challengeType = challengeType
-        if managedObjectContext.hasChanges {
-            do {
-                try managedObjectContext.save()
-                print("Success")
-            } catch {
-                print("\(error)")
-            }
-        }
-    }
-//    
+//        let newChallenge = NSEntityDescription.insertNewObject(forEntityName: "Challenge", into: managedObjectContext) as! Challenge
+//        newChallenge.name = ("San Jose \(challengeType) Challenge")
+//        newChallenge.completed = false
+//        newChallenge.challengeType = challengeType
+//        if managedObjectContext.hasChanges {
+//            do {
+//                try managedObjectContext.save()
+//                print("Success")
+//            } catch {
+//                print("\(error)")
+//            }
+//        }
+//    }
+//
 //    func createPlaces() {
 //        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
 //            if let error = error {
@@ -73,7 +73,7 @@ class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChal
 //                }
 //            }
 //        })
-//    }
+    }
     
     func newChallengeCancelButtonPressed(by controller: NewChallengeViewController){
         dismiss(animated: true, completion: nil)

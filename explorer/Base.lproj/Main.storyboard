@@ -146,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cUn-lX-wdf" id="JOJ-nd-fJA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRc-bV-E3C">
@@ -200,40 +200,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zb-N0Y" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-zb-N0Y" customClass="GMSMapView">
                                 <rect key="frame" x="1" y="64" width="319" height="223"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Select Type of Challenge:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4du-Qh-icH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Type of Challenge:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4du-Qh-icH">
                                 <rect key="frame" x="62" y="303" width="196" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-ew-e5j">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-ew-e5j">
                                 <rect key="frame" x="78" y="484" width="164" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="jtC-QS-rOR"/>
+                                </constraints>
                                 <state key="normal" title="Start Challenge!"/>
                                 <connections>
                                     <action selector="startChallengeButtonPressed:" destination="5OL-I6-usC" eventType="touchUpInside" id="Nap-Ji-8W0"/>
                                     <segue destination="jPA-Yn-enC" kind="presentation" identifier="startChallenge" id="xzJ-0G-hej"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="468-pG-agN">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="468-pG-agN">
                                 <rect key="frame" x="0.0" y="303" width="320" height="216"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="5OL-I6-usC" id="SXu-hO-J6A"/>
-                                    <outlet property="delegate" destination="5OL-I6-usC" id="5LU-8m-eq9"/>
+                                    <outlet property="dataSource" destination="5OL-I6-usC" id="Xa8-e7-OLA"/>
+                                    <outlet property="delegate" destination="5OL-I6-usC" id="8P4-2y-aMy"/>
                                 </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4du-Qh-icH" firstAttribute="centerX" secondItem="1dS-f8-xLW" secondAttribute="centerX" id="8ol-HN-vIK"/>
-                            <constraint firstItem="468-pG-agN" firstAttribute="top" secondItem="4du-Qh-icH" secondAttribute="bottom" constant="-18" id="Ey5-HR-LWU"/>
-                            <constraint firstItem="468-pG-agN" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leadingMargin" id="WwL-pE-LNb"/>
-                            <constraint firstItem="4du-Qh-icH" firstAttribute="centerY" secondItem="468-pG-agN" secondAttribute="centerY" id="fwv-1T-xVD"/>
+                            <constraint firstItem="1Sl-zb-N0Y" firstAttribute="trailing" secondItem="468-pG-agN" secondAttribute="trailing" id="0pG-Gl-Sir"/>
+                            <constraint firstItem="468-pG-agN" firstAttribute="top" secondItem="4du-Qh-icH" secondAttribute="top" id="3Rz-Ad-OJW"/>
+                            <constraint firstItem="4du-Qh-icH" firstAttribute="centerX" secondItem="468-pG-agN" secondAttribute="centerX" id="KHF-Sv-PAb"/>
+                            <constraint firstItem="4du-Qh-icH" firstAttribute="top" secondItem="1Sl-zb-N0Y" secondAttribute="bottom" constant="16" id="Ras-s4-hDX"/>
+                            <constraint firstItem="468-pG-agN" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leading" id="TN8-7g-sRp"/>
+                            <constraint firstItem="GUd-ew-e5j" firstAttribute="leading" secondItem="1dS-f8-xLW" secondAttribute="leadingMargin" constant="62" id="cUV-wd-aaf"/>
+                            <constraint firstItem="DHA-Cg-Ktp" firstAttribute="top" secondItem="GUd-ew-e5j" secondAttribute="bottom" constant="16" id="dSF-tr-mIb"/>
+                            <constraint firstItem="1Sl-zb-N0Y" firstAttribute="top" secondItem="aO7-rI-vDS" secondAttribute="bottom" id="fSs-aR-sJe"/>
+                            <constraint firstItem="468-pG-agN" firstAttribute="centerX" secondItem="GUd-ew-e5j" secondAttribute="centerX" id="lGV-bT-rZI"/>
+                            <constraint firstItem="DHA-Cg-Ktp" firstAttribute="top" secondItem="468-pG-agN" secondAttribute="bottom" constant="49" id="tb3-vF-Sbd"/>
+                            <constraint firstItem="1Sl-zb-N0Y" firstAttribute="centerX" secondItem="4du-Qh-icH" secondAttribute="centerX" id="x80-yt-yJo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Start a Challenge" id="dGl-S4-C1V">
@@ -244,7 +252,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="challengeTypeInput" destination="468-pG-agN" id="Ze9-yg-mel"/>
+                        <outlet property="challengeTypeInput" destination="468-pG-agN" id="DwD-hC-gCa"/>
                         <outlet property="currentLocationMap" destination="1Sl-zb-N0Y" id="i5o-4l-4ew"/>
                     </connections>
                 </viewController>
@@ -281,7 +289,7 @@
                                 <rect key="frame" x="0.0" y="113" width="320" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cNo-YR-lJI" id="ves-yT-ZYK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuL-Sl-hZE">
