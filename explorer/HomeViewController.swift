@@ -7,39 +7,65 @@
 //
 
 import UIKit
-import CoreLocation
 import GoogleMaps
+import CoreData
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, NewChallengeDelegateProtocol, MyChallengeDelegateProtocol {
+    // REMEMBER TO ADD OTHER DELEGATE PROTCOLS
+    
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // var personLocation: String?
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // Create a GMSCameraPosition that tells map to display coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        self.view = mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
     }
     
-    func newChallengeCancelButtonPressed(by controller: NewChallengeDelegateProtocol){
+    func challengeSaved(by controller: NewChallengeViewController) {
+    }
+    
+    func newChallengeCancelButtonPressed(by controller: NewChallengeViewController){
         dismiss(animated: true, completion: nil)
     }
     
-    func homeFromBadgeButtonPressed(by controller: MyBadgesDelegateProtocol){
+    func homeFromBadgeButtonPressed(by controller: MyBadgesTableViewController){
         dismiss(animated: true, completion: nil)
     }
     
-    func homeFromMyChallengeButtonPressed(by controller: MyBadgesDelegateProtocol){
+    func homeFromMyChallengeButtonPressed(by controller: MyChallengeTableViewController){
         dismiss(animated: true, completion: nil)
     }
+    
+    func giveUpButtonPressed(by controller: MyChallengeTableViewController, challenge: Challenge){
+        let deletedChallenge = challenge
+        managedObjectContext.delete(deletedChallenge)
+        saveData()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func completeChallengeButtonPressed(by controller: MyChallengeTableViewController) {
+    }
+    
+    func saveData() {
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            }
+            catch {
+                print("error saving \(error)")
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newChallenge" {
+            let navigationController = segue.destination as! UINavigationController
+            let cancelViewController = navigationController.topViewController as! NewChallengeViewController
+            cancelViewController.delegate = self
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

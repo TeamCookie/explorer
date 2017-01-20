@@ -9,8 +9,7 @@
 import UIKit
 
 protocol MyChallengeDelegateProtocol: class{
-    func giveUpButtonPressed(by controller: MyChallengeTableViewController)
-    func checkInButtonPressed(by controller: MyChallengeTableViewController)
-    func homeButtonPressed(by controller: MyChallengeTableViewController)
+    func giveUpButtonPressed(by controller: MyChallengeTableViewController, challenge: Challenge)
+    func homeFromMyChallengeButtonPressed(by controller: MyChallengeTableViewController)
     func completeChallengeButtonPressed(by controller: MyChallengeTableViewController)
 }

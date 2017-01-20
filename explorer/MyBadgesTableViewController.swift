@@ -22,7 +22,7 @@ class MyBadgesTableViewController: UITableViewController {
     }
     
     @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
-        delegate?.homeButtonPressed(by: self)
+        delegate?.homeFromBadgeButtonPressed(by: self)
     }
     
     @IBAction func newChallengeButtonPressed(_ sender: UIButton) {

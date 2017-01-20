@@ -10,5 +10,5 @@ import UIKit
 
 protocol NewChallengeDelegateProtocol: class{
     func challengeSaved(by controller: NewChallengeViewController)
-    func cancelButtonPressed(by controller: NewChallengeViewController)
+    func newChallengeCancelButtonPressed(by controller: NewChallengeViewController)
 }

@@ -35,15 +35,14 @@ class MyChallengeTableViewController: UITableViewController {
     
     
     @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
-        delegate?.homeButtonPressed(by: self)
+        delegate?.homeFromMyChallengeButtonPressed(by: self)
     }
     
-    @IBAction func giveUpButtonPressed(_ sender: UIBarButtonItem) {
-        delegate?.giveUpButtonPressed(by: self)
+    @IBAction func giveUpButtonPressed(_ sender: UIBarButtonItem, challenge: Challenge) {
+        delegate?.giveUpButtonPressed(by: self, challenge: thisChallenge)
     }
     
-    @IBAction func checkInButtonPressed(_ sender: UIButton) {
-        delegate?.checkInButtonPressed(by: self)
+    @IBAction func checkInButtonPressed() {
     }
     
     @IBAction func completeChallengeButtonPressed(_ sender: UIButton) {
