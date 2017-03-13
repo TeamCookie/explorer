@@ -2,7 +2,7 @@
 //  Place+CoreDataProperties.swift
 //  
 //
-//  Created by June Yoshii on 1/19/17.
+//  Created by  on 1/19/17.
 //
 //  This file was automatically generated and should not be edited.
 //

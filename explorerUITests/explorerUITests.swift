@@ -2,7 +2,7 @@
 //  explorerUITests.swift
 //  explorerUITests
 //
-//  Created by June Yoshii on 1/19/17.
+//  Created by  on 1/19/17.
 //  Copyright © 2017 juney. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  Challenge+CoreDataClass.swift
 //  
 //
-//  Created by June Yoshii on 1/19/17.
+//  Created byon 1/19/17.
 //
 //  This file was automatically generated and should not be edited.
 //
