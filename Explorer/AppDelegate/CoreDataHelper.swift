@@ -15,6 +15,7 @@ let keyDistance = "distance"
 let keyName = "name"
 let keyResult = "result"
 let keyType = "type"
+let keyBadge = "isBadge"
 
 class CoreDataHelper : NSObject {
     

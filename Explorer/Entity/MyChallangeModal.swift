@@ -15,7 +15,7 @@ class MyChallangeModal : NSObject, NSCoding{
     var distance: String!
     var type: String!
     var result: NSData!
-    
+    var isBadge : Bool!
     
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -26,6 +26,7 @@ class MyChallangeModal : NSObject, NSCoding{
         distance = dictionary[keyDistance] as? String
         result = dictionary[keyResult] as? NSData
         type = dictionary[keyType] as? String
+        isBadge = dictionary[keyBadge] as? Bool
     }
     
     /**
@@ -49,6 +50,9 @@ class MyChallangeModal : NSObject, NSCoding{
         if type != nil{
             dictionary[keyType] = type
         }
+        if isBadge != nil{
+            dictionary[keyBadge] = isBadge
+        }
         return dictionary
     }
     
@@ -62,6 +66,7 @@ class MyChallangeModal : NSObject, NSCoding{
         name = aDecoder.decodeObject(forKey: keyName) as? String
         distance = aDecoder.decodeObject(forKey: keyDistance) as? String
         type = aDecoder.decodeObject(forKey: keyType) as? String
+        isBadge = aDecoder.decodeObject(forKey: keyBadge) as? Bool
         result = aDecoder.decodeObject(forKey: keyResult) as? NSData
     }
     
@@ -89,6 +94,10 @@ class MyChallangeModal : NSObject, NSCoding{
         
         if type != nil {
             aCoder.encode(type, forKey: keyType)
+        }
+        
+        if isBadge != nil {
+            aCoder.encode(isBadge, forKey: keyBadge)
         }
     }
 }

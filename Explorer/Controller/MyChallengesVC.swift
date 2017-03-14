@@ -38,6 +38,20 @@ class MyChallengesVC : UIViewController {
     
     //------------------------------------------------------
     
+    //MARK: Action Methods
+    
+    /*@IBAction func btnEditTapp(_ sender: UIBarButtonItem) {
+        
+        if sender.title == "Edit" {
+            tblMyChallengaes.setEditing(true, animated: true)
+            sender.title = "Done"
+        } else {
+            tblMyChallengaes.setEditing(false, animated: true)
+        }
+    }*/
+    
+    //------------------------------------------------------
+    
     //MARK: UIView Life Cycle Method
     
     override func viewDidLoad() {
@@ -125,19 +139,15 @@ extension MyChallengesVC : UITableViewDataSource {
 extension MyChallengesVC : UITableViewDelegate {
     
     
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 60
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    /*func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         
         return UITableViewCellEditingStyle(rawValue: 3)!
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -184,6 +194,41 @@ extension MyChallengesVC : UITableViewDelegate {
         }
         
         return 0
+    }       
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        var result : MyChallangeModal! = MyChallangeModal(fromDictionary: [:])
+        
+        if indexPath.section == 0 {
+            result = locals[indexPath.row]
+        } else if (indexPath.section == 1) {
+            result = states[indexPath.row]
+        } else {
+            result = counties[indexPath.row]
+        }
+        
+        if CoreDataManager.singleton.delete(myChallange: result) == true {
+           
+            if indexPath.section == 0 {
+                
+                if let index = locals.index(of: result) {
+                    locals.remove(at: index)
+                }
+                
+            } else if (indexPath.section == 1) {
+               
+                if let index = states.index(of: result) {
+                    states.remove(at: index)
+                }
+            } else {
+                
+                if let index = counties.index(of: result) {
+                    counties.remove(at: index)
+                }
+            }
+            tblMyChallengaes.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

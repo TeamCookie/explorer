@@ -3,7 +3,7 @@
 //  Explorer
 //
 //  Created by Team Cookie on 02/02/17.
-//  Copyright © 2017 Team Cookie. All rights reserved.
+//  Copyright © 2017 Developer. All rights reserved.
 //
 
 import UIKit

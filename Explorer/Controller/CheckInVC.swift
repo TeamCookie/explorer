@@ -53,7 +53,7 @@ class CheckInVC : UIViewController {
             
             let locationDestination = CLLocationCoordinate2D(latitude: Double(result.geometry.location.lat), longitude: Double(result.geometry.location.lng))
             let distanceInMeter = LocationManager.singleton.distanceFromCurrentLocation(destinationCordinate: locationDestination) * 0.000621371
-
+            /*
             if (distanceInMeter.roundTo(places: 2) == 0.00) {
                 
                 result.isCheckIn = true
@@ -64,11 +64,22 @@ class CheckInVC : UIViewController {
                 self.tblCheckIns.reloadData()
                 
                 messageBox(message: "Congratulation, You have visited this place")
+                
             } else {
                 
                 messageBox(message: "You're not at the place, Please try again")
             }
- 
+            */
+            result.isCheckIn = true
+            let dataResut = NSKeyedArchiver.archivedData(withRootObject: results)
+            myChallange.result = dataResut as NSData!
+            CoreDataManager.singleton.updateChallange(myChallange: myChallange)
+            results = NSKeyedUnarchiver.unarchiveObject(with: myChallange.result as Data) as! [Result]!
+            self.tblCheckIns.reloadData()
+            
+            messageBox(message: "Congratulations, You have visited this place!")
+
+            
             return
         }
     }

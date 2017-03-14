@@ -2,8 +2,8 @@
 //  CoreDataStore.swift
 //  SwiftCoreDataSimpleDemo
 //
-//  Created by CHENHAO on 14-7-9.
-//  Copyright (c) 2014 CHENHAO. All rights reserved.
+//  Created by Team Cookie on 28/02/17.
+//  Copyright © 2017 Team Cookie. All rights reserved.
 //
 
 import Foundation

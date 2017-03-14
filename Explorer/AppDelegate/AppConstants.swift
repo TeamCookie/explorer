@@ -16,7 +16,6 @@ enum LocationType : String {
     case Local = "Local"
     case State = "State"
     case World = "Country"
-//    case Rookie = "Rookie"
 }
 
 var BlankView : UIView {

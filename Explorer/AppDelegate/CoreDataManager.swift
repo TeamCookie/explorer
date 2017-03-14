@@ -34,6 +34,27 @@ class CoreDataManager : NSObject {
         return count
     }
     
+    func delete(myChallange : MyChallangeModal) -> Bool {
+        
+        let moc = appDelegate.cdh.backgroundContext!
+        
+        let competitionsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: String.className(MyChallenges.self))
+        competitionsFetch.predicate = NSPredicate(format: "SELF.id == %ld", myChallange.id)
+        competitionsFetch.resultType = .managedObjectResultType
+        let deleteReq = NSBatchDeleteRequest(fetchRequest: competitionsFetch)
+        
+        do {
+            try moc.execute(deleteReq)
+            return true
+            
+        } catch let error {
+            
+            print(error)
+            return false
+        }
+        //appDelegate.cdh.saveContext(moc)
+    }
+    
     //------------------------------------------------------
     
     func saveNewChallange(myChallange : MyChallangeModal) {
@@ -79,9 +100,9 @@ class CoreDataManager : NSObject {
                 }
             })
             if inObjects?.count == 0 {
-                object.isBadge = true
+                object.isBadge = false //true
             } else {
-                object.isBadge = false
+                object.isBadge = true //false
             }
         }
         appDelegate.cdh.saveContext(moc)
@@ -90,6 +111,8 @@ class CoreDataManager : NSObject {
     //------------------------------------------------------
     
     func fetchMyChallenges(type : String) -> [MyChallangeModal] {
+        
+        print(appDelegate.cdstore.applicationDocumentsDirectory)
         
         let moc = appDelegate.cdh.backgroundContext!
         let competitionsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: String.className(MyChallenges.self))
@@ -106,10 +129,29 @@ class CoreDataManager : NSObject {
     
     func fetchMyBadges() -> [MyChallangeModal] {
         
+        print(appDelegate.cdstore.applicationDocumentsDirectory)
+        
         let moc = appDelegate.cdh.backgroundContext!
         let competitionsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: String.className(MyChallenges.self))
         competitionsFetch.resultType = .dictionaryResultType
         competitionsFetch.predicate = NSPredicate(format: "SELF.isBadge == %ld", 1)
+        let fetchResult = try! moc.fetch(competitionsFetch)
+        var prepareReturn : [MyChallangeModal] = []
+        for dictionary in fetchResult {
+            let object = MyChallangeModal(fromDictionary: dictionary as! NSDictionary)
+            prepareReturn.append(object)
+        }
+        return prepareReturn
+    }
+    
+    func fetchMyOtherBadges() -> [MyChallangeModal] {
+        
+        print(appDelegate.cdstore.applicationDocumentsDirectory)
+        
+        let moc = appDelegate.cdh.backgroundContext!
+        let competitionsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: String.className(MyChallenges.self))
+        competitionsFetch.resultType = .dictionaryResultType
+        competitionsFetch.predicate = NSPredicate(format: "SELF.isBadge != %ld", 1)
         let fetchResult = try! moc.fetch(competitionsFetch)
         var prepareReturn : [MyChallangeModal] = []
         for dictionary in fetchResult {
